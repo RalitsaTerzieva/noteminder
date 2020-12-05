@@ -1,12 +1,11 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from accounts.models import UserProfile
 
 
-class RegisterForm(ModelForm):
-    class Meta:
-        model = User
-        fields = '__all__'
+class RegisterForm(UserCreationForm):
+    pass
 
 
 class ProfileForm(ModelForm):
