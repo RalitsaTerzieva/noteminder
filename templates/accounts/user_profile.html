@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
-</head>
-<body>
+{% extends 'common/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block site_content %}
     <h5>This is your profile</h5>
-</body>
-</html>
+    {% if object.profile_image %}
+        <img src="{{ object.profile_image.url }}" alt="profile picture" />
+    {% else %}
+        <img src="{% static 'img/noprofile.jpg' %}" class="rounded mx-auto d-block" alt="profile picture" />
+    {% endif %}
+
+    {{ object.user.username }}
+    {% buttons %}
+        <a href="{% url 'profile_update' object.pk %}" rel="button" class="btn btn-primary">Edit</a>
+        <a href="{% url 'list_notes' %}" rel="button" class="btn btn-primary">Notes</a>
+    {% endbuttons %}
+{% endblock %}

@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% load bootstrap4 %}
+{% block site_content %}
+    {% if object_list %}
+        {% for note in object_list %}
+            {{ note.title }}
+        {% endfor %}
+    {% else %}
+        <h2>You have no notes.</h2>
+    {% endif %}
+{% endblock %}

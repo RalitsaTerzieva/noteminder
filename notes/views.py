@@ -1,22 +1,25 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, DetailView, UpdateView, ListView
 
-# Create your views here.
-from django.views.generic import TemplateView
+from accounts.models import UserProfile
+from notes.models import Note
 
 
 class IndexView(TemplateView):
-    pass
+    template_name = 'index.html'
 
 
-def profile(request):
-    pass
+class AboutView(TemplateView):
+    template_name = 'about.html'
 
 
-def about(request):
-    pass
+class NotesListView(ListView):
+    model = Note
+    template_name = 'list_notes.html'
 
-def list_notes(request):
-    pass
+    def get_queryset(self):
+        return Note.objects.filter(profile=self.request.user.userprofile)
+
 
 def add_note(request):
     pass

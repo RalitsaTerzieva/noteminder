@@ -1,7 +1,8 @@
 from django.urls import reverse_lazy
+from django.views.generic import DetailView
 
 from .forms import RegisterForm
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 from .models import UserProfile
 
@@ -13,6 +14,28 @@ class SignUpView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
+        # make profile of this user
         UserProfile.objects.create(user=self.object)
         return response
+
+
+class ProfileDetailView(DetailView):
+    model = UserProfile
+    template_name = 'accounts/user_profile.html'
+
+    def get_object(self, queryset=None):
+        return self.request.user.userprofile
+
+
+class ProfileUpdateView(UpdateView):
+    model = UserProfile
+    fields = ['profile_image']
+    template_name = 'accounts/edit_profile.html'
+    success_url = reverse_lazy('profile_detail')
+
+
+
+
+
+
 
