@@ -17,13 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from notes.views import IndexView, about
+from notes.views import IndexView, AboutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name="index"),
     path('accounts/', include('accounts.urls')),
-    path('about/', about, name="name"),
+    path('about/', AboutView.as_view(), name="about"),
     path('notes/', include('notes.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

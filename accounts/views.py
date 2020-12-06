@@ -15,3 +15,4 @@ class SignUpView(CreateView):
         response = super().form_valid(form)
         UserProfile.objects.create(user=self.object)
         return response
+
