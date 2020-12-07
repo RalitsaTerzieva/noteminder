@@ -1,6 +1,16 @@
 {% extends 'common/base.html' %}
-
+{% load static %}
 {% block site_content %}
-    <h1> This is HOME PAGE.</h1>
+    <div class="row">
+        <div class="col text-center">
+            <h1>Noteminder</h1>
+            <img src="{% static 'img/notebook.png' %}" alt="notebook picture" />
+            <div>
+                 <a href="{% url 'login' %}" rel="button" class="btn btn-lg btn-success mr-3">Login</a>
+                 <a href="{% url 'register' %}" rel="button" class="btn btn-lg btn-success">Register</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 

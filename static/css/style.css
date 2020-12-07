@@ -1,0 +1,16 @@
+body {
+    height: 100%;
+    background-color: lightyellow;
+}
+
+nav.footer {
+    color: rgba(0, 0, 0, .5)
+}
+
+nav {
+    background-color: #FFB895;
+}
+
+.profile-image {
+    width: 30%;
+}

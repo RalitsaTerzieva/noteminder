@@ -2,16 +2,21 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block site_content %}
-    <h5>This is your profile</h5>
-    {% if object.profile_image %}
-        <img src="{{ object.profile_image.url }}" alt="profile picture" />
-    {% else %}
-        <img src="{% static 'img/noprofile.jpg' %}" class="rounded mx-auto d-block" alt="profile picture" />
-    {% endif %}
+    <div class="row">
+        <div class="col text-center">
+            <h1>This is your profile</h1>
+            {% if object.profile_image %}
+                <img src="{{ object.profile_image.url }}" alt="profile picture" class="img-thumbnail profile-image" />
+            {% else %}
+                <img src="{% static 'img/noprofile.jpg' %}" class="rounded mx-auto d-block" alt="profile picture" />
+            {% endif %}
 
-    {{ object.user.username }}
-    {% buttons %}
-        <a href="{% url 'profile_update' object.pk %}" rel="button" class="btn btn-primary">Edit</a>
-        <a href="{% url 'list_notes' %}" rel="button" class="btn btn-primary">Notes</a>
-    {% endbuttons %}
+            <div>{{ object.user.username }}</div>
+            <div class="mb-5 mt-3">
+                <a href="{% url 'profile_update' object.pk %}" rel="button" class="btn btn-success mr-3">Edit</a>
+                <a href="{% url 'list_notes' %}" rel="button" class="btn btn-success">Notes</a>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

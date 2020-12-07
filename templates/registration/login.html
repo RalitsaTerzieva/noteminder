@@ -1,12 +1,16 @@
 {% extends 'common/base.html' %}
 {% load bootstrap4 %}
 {% block site_content %}
-    <h2>Login</h2>
-     <form action="{% url 'login' %}" method="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-primary">Login</button>
-        {% endbuttons %}
-    </form>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h1>Login</h1>
+            <form action="{% url 'login' %}" method="post" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-success">Login</button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
 {% endblock %}

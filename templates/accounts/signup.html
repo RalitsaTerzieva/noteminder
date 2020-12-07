@@ -2,13 +2,18 @@
 {% load bootstrap4 %}
 
 {% block site_content %}
-    <h1>Sign up</h1>
-    <form action="{% url 'register' %}" method="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-primary">Sign up</button>
-        {% endbuttons %}
-    </form>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h1>Sign up</h1>
+            <form action="{% url 'register' %}" method="post" class="form">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-success">Sign up</button>
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+
 {%  endblock %}
 

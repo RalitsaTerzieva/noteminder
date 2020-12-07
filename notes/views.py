@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView, UpdateView, ListView
-
-from accounts.models import UserProfile
+from django.views.generic import TemplateView, ListView
 from notes.models import Note
 
 
