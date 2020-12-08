@@ -1,6 +1,12 @@
 {%  extends 'common/base.html' %}
+{% load static %}
 {% block site_content %}
-    <h3>About us</h3>
-    <p>Everything started with small school project and turned in this amazing Noteminder application that helps thousands of people to organize their daily routine. We believe that everybody deserves organize day and help with the daily tasks. We are here to make days more easy. </p>
-    <p>Let`s note that!</p>
+    <div class="row">
+        <div class="col">
+            <h1>About us</h1>
+            <p>Everything started with small school project and turned in this amazing Noteminder application that helps thousands of people to organize their daily routine. We believe that everybody deserves organize day and help with the daily tasks. We are here to make days more easy. </p>
+            <p>Let`s note that!</p>
+            <img src="{% static 'img/aboutpage.jpg' %}" alt="about picture" class="img-fluid" />
+        </div>
+    </div>
 {% endblock %}

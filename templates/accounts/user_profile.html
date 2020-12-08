@@ -8,7 +8,7 @@
             {% if object.profile_image %}
                 <img src="{{ object.profile_image.url }}" alt="profile picture" class="img-thumbnail profile-image" />
             {% else %}
-                <img src="{% static 'img/noprofile.jpg' %}" class="rounded mx-auto d-block" alt="profile picture" />
+                <img src="{% static 'img/noprofile.jpg' %}" class="rounded mx-auto d-block img-thumbnail profile-image" alt="profile picture" />
             {% endif %}
 
             <div>{{ object.user.username }}</div>

@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% load bootstrap4 %}
+{% block site_content %}
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <h2>Delete Note</h2>
+            <form method="post" action="{% url "note_delete" object.pk %}">
+                {% csrf_token %}
+                <p>Are you sure you want to delete "{{ object.title }}"?</p>
+                <button type="submit" class="btn btn-success">Confirm</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
