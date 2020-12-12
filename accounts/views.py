@@ -2,21 +2,20 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
-
 from .forms import RegisterForm
 from django.views.generic.edit import CreateView, UpdateView
-
 from .models import UserProfile
 
 
 class SignUpView(CreateView):
     template_name = 'accounts/signup.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('login')
     form_class = RegisterForm
 
     def form_valid(self, form):
+        # save the user to database
         response = super().form_valid(form)
-        # make profile of this user
+        # make userprofile of this user
         UserProfile.objects.create(user=self.object)
         return response
 
